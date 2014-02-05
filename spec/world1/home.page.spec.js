@@ -45,11 +45,19 @@ describe('Home page:', function() {
         });
     });
 
-    //https://github.com/cletourneau
     it('has a Contact Me Link', function(done) {
         request('http://localhost:7000/', function(error, response, body) {
             var $ = cheerio.load(body);
             expect($('a#contact-me-link').length).toBe(1);
+            done();
+        });
+    });
+
+    it('has a link to the Ping page', function(done) {
+        request('http://localhost:7000/', function(error, response, body) {
+            var $ = cheerio.load(body);
+            expect($('a#ping-challenge-link').attr('href')).toEqual('/ping');
+
             done();
         });
     });
