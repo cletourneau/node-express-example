@@ -1,6 +1,6 @@
-var share = function(request, response) {
+var helloYose = function(request, response) {
     response.setHeader('Content-Type', 'text/html');
-    response.send('<html><a id="repository-link"></a></html>');
+    response.send('<html>Hello Yose</html>');
 };
 
-module.exports = share;
+module.exports = helloYose;

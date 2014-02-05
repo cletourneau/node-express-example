@@ -3,7 +3,7 @@ var http    = require('http');
 var server  = require('../../libs/server');
 var cheerio = require('cheerio');
 
-describe('Passing the share level:', function() {
+describe('World1 - Hello Yose:', function() {
 
     var testServer;
     
@@ -17,8 +17,7 @@ describe('Passing the share level:', function() {
    
     it('contains the repository link', function(done) {
         request('http://localhost:7000/', function(error, response, body) {
-            var $ = cheerio.load(body);
-            expect($('a#repository-link').length).toBe(1);
+            expect(body).toContain('Hello Yose');
             done(); 
         });
     });
