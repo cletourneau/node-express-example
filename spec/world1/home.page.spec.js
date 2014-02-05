@@ -3,7 +3,7 @@ var http    = require('http');
 var server  = require('../../libs/server');
 var cheerio = require('cheerio');
 
-xdescribe('Passing the share level:', function() {
+describe('Home page:', function() {
 
     var testServer;
     
@@ -15,11 +15,18 @@ xdescribe('Passing the share level:', function() {
         testServer.close(); 
     });
    
+    it('contains the text Hello Yose', function(done) {
+        request('http://localhost:7000/', function(error, response, body) {
+            expect(body).toContain('Hello Yose');
+            done(); 
+        });
+    });
+
     it('contains the repository link', function(done) {
         request('http://localhost:7000/', function(error, response, body) {
             var $ = cheerio.load(body);
             expect($('a#repository-link').length).toBe(1);
-            done(); 
+            done();
         });
     });
 });

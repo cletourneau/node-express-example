@@ -7,7 +7,7 @@ server.get('/ping', function(request, response){
 });
 
 server.get('/', function(request, response){
-    require('./world1/hello.yose.endpoint.js')(request, response);
+    require('./world1/home.page.js')(request, response);
 });
 
 module.exports = server;
