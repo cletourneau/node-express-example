@@ -1,6 +1,6 @@
 var request = require('request');
 var http    = require('http');
-var server  = require('../libs/server');
+var server  = require('../../libs/server');
 
 describe('Passing the ping level:', function() {
 

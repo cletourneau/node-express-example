@@ -1,6 +1,6 @@
 var request = require('request');
 var http    = require('http');
-var server  = require('../libs/server');
+var server  = require('../../libs/server');
 var cheerio = require('cheerio');
 
 describe('Passing the share level:', function() {
