@@ -30,4 +30,19 @@ describe('Home page:', function() {
             done();
         });
     });
+
+    it('links to a webpage with an element containing the name of the game', function(done) {
+        request('http://localhost:7000/', function(error, response, body) {
+            var $ = cheerio.load(body);
+            // expect().toEqual('https://github.com/cletourneau/yose-node');
+            var link = $('a#repository-link').attr('href');
+
+            request(link, function(error, response, body) {
+                var $ = cheerio.load(body);
+                expect($('#readme').text()).toContain('YoseTheGame');
+                done();
+            });
+
+        });
+    });
 });
