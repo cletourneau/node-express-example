@@ -26,6 +26,7 @@ describe('Home page:', function() {
         request('http://localhost:7000/', function(error, response, body) {
             var $ = cheerio.load(body);
             expect($('a#repository-link').length).toBe(1);
+            expect($('a#repository-link').attr('href')).toEqual('https://github.com/cletourneau/yose-node');
             done();
         });
     });
